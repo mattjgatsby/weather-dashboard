@@ -18,7 +18,7 @@ function fetchApi(cityName) {
     })
     .then(function (data) {
       hideDisplay();
-      showWeather(data);
+      displayWeather(data);
     });
 }
 
@@ -32,7 +32,7 @@ function renderBtn() {
   newBtn.setAttribute("class", "mx-auto mb-1 btn-block");
   newBtn.textContent = cityName.value;
   newBtn.onclick = btnClickFunk;
-  appendtoList(newBtn.textContent);
+  addCity(newBtn.textContent);
   document.getElementById("saved_city").appendChild(newBtn);
 
   fetchApi(newBtn.textContent);
@@ -41,7 +41,7 @@ function renderBtn() {
 function displayWeather(data) {
   let nowWeather = document.getElementById("now_weather");
   let cityName = document.createElement("h2");
-  let image = document.createElement("img");
+  let imageEl = document.createElement("img");
   let temp = document.createElement("p");
   let windInfo = document.createElement("p");
   let humid = document.createElement("p");
@@ -52,17 +52,17 @@ function displayWeather(data) {
     moment.unix(data.list[0].dt).format("MM/D/YYYY") +
     ")";
   cityName.setAttribute("class", "d-inline");
-  image.setAttribute(
+  imageEl.setAttribute(
     "src",
-    "https://openweathermap.org/img/w/" + data.list[0].weather[0].image + ".png"
+    "https://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png"
   );
-  image.setAttribute("class", "d-inline");
+  imageEl.setAttribute("class", "d-inline");
   temp.textContent = "Temperature: " + data.list[0].main.temp + "°F";
-  windInfo.textContent = "Wind speed: " + data.list[0].windInfo.speed + " mph";
-  humid.textContent = "Humidity: " + data.list[0].main.humid + "%";
+  windInfo.textContent = "Wind speed: " + data.list[0].wind.speed + " mph";
+  humid.textContent = "Humidity: " + data.list[0].main.humidity + "%";
 
   nowWeather.appendChild(cityName);
-  nowWeather.appendChild(image);
+  nowWeather.appendChild(imageEl);
   nowWeather.appendChild(temp);
   nowWeather.appendChild(windInfo);
   nowWeather.appendChild(humid);
@@ -85,7 +85,7 @@ function displayWeather(data) {
 
     divEl.setAttribute(
       "class",
-      "d-inline row-col-2 bg-info bg-gradient mx-2 px-1"
+      "d-inline row-col-3 bg-info bg-gradient mx-3 px-4"
     );
     date.textContent = moment.unix(data.list[i].dt).format("MM/D/YYYY");
     icon.setAttribute(
