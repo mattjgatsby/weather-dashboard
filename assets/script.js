@@ -23,5 +23,17 @@ function fetchApi(cityName) {
 }
 
 function btnClickFunk(event) {
-    fetchApi(event.target.textContent);
-  }
+  fetchApi(event.target.textContent);
+}
+
+function renderBtn() {
+  let cityName = document.getElementById("city_input");
+  let newBtn = document.createElement("button");
+  newBtn.setAttribute("class", "mx-auto mb-1 btn-block");
+  newBtn.textContent = cityName.value;
+  newBtn.onclick = btnClickFunk;
+  appendtoList(newBtn.textContent);
+  document.getElementById("saved_city").appendChild(newBtn);
+
+  fetchApi(newBtn.textContent);
+}
