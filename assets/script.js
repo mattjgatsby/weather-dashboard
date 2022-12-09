@@ -142,3 +142,11 @@ function addCity(cityName) {
   newCity.push(cityName);
   localStorage.setItem("cityList", JSON.stringify(newCity));
 }
+
+function start() {
+  loadBtns();
+}
+
+document.getElementById("enter_btn").addEventListener("click", renderBtn);
+
+start();
