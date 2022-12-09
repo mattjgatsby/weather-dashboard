@@ -106,3 +106,17 @@ function displayWeather(data) {
     fiveDayWeather.appendChild(divEl);
   }
 }
+
+function hideDisplay() {
+  let elements = [
+    document.getElementById("now_weather"),
+    document.getElementById("upcoming_weather"),
+    document.getElementById("five_day_weather"),
+  ];
+
+  for (let i = 0; i < elements.length; i++) {
+    while (elements[i].hasChildNodes()) {
+      elements[i].removeChild(elements[i].firstChild);
+    }
+  }
+}
