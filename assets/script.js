@@ -120,3 +120,20 @@ function hideDisplay() {
     }
   }
 }
+
+function loadBtns() {
+  city = JSON.parse(localStorage.getItem("cityList"));
+  if (city == null) {
+    city = [];
+    return;
+  } else {
+    for (let i = 0; i < city.length; i++) {
+      let newCityBtn = document.createElement("button");
+
+      newCityBtn.setAttribute("class", "mx-auto mb-1 btn-block");
+      newCityBtn.textContent = city[i];
+      newCityBtn.onclick = btnClickFunk;
+      document.getElementById("saved_city").appendChild(newCityBtn);
+    }
+  }
+}
