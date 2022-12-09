@@ -22,3 +22,6 @@ function fetchApi(cityName) {
     });
 }
 
+function btnClickFunk(event) {
+    fetchApi(event.target.textContent);
+  }
