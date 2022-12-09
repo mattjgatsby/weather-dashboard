@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link type="stylesheet" href="./assets/style.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class=" h1 mx-auto text-white">Weather Dashboard</span>
+        </div>
+    </nav>
+    <main class="row">
+        <section class="col-2">
+            <div>
+                <h1 class="mx-auto text-primary">Search a City</h1>
+                <input type="text" class="form-control" placeholder="Enter a City" id="city_input">
+                <button class="btn btn-dark btn btn-block mt-1 mb-1" type="button" id="enter-btn">Submit</button>
+                <hr>
+            </div>
+            <div id="saved_city">
+
+            </div>
+        </section>
+        <section class="col-9">
+            <div class="container-fluid col-12" id="now_weather">
+
+            </div>
+
+            <div class="container-fluid col-12" id="upcoming_weather">
+
+            </div>
+
+            <div class="container-fluid col-12" id="five_day_weather">
+
+            </div>
+        </section>
+
+    </main>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./assets/script.js"></script>
+
+</body>
+
+</html>
