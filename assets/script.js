@@ -122,18 +122,23 @@ function hideDisplay() {
 }
 
 function loadBtns() {
-  city = JSON.parse(localStorage.getItem("cityList"));
-  if (city == null) {
-    city = [];
+  newCity = JSON.parse(localStorage.getItem("cityList"));
+  if (newCity == null) {
+    newCity = [];
     return;
   } else {
-    for (let i = 0; i < city.length; i++) {
+    for (let i = 0; i < newCity.length; i++) {
       let newCityBtn = document.createElement("button");
 
       newCityBtn.setAttribute("class", "mx-auto mb-1 btn-block");
-      newCityBtn.textContent = city[i];
+      newCityBtn.textContent = newCity[i];
       newCityBtn.onclick = btnClickFunk;
       document.getElementById("saved_city").appendChild(newCityBtn);
     }
   }
+}
+
+function addCity(cityName) {
+  newCity.push(cityName);
+  localStorage.setItem("cityList", JSON.stringify(newCity));
 }
